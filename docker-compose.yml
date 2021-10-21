@@ -13,15 +13,14 @@ services:
     depends_on:
       - main
   main:
-    container_name: main
     build:
       context: .
       target: development
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - 9229:9229
+    # ports:
+    #   - 9229:9229
     command: npm run start:debug
     env_file:
       - .env
