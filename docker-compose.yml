@@ -22,8 +22,8 @@ services:
     # ports:
     #   - 9229:9229
     command: npm run start:debug
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     environment:
       FRONTENT_URL: ${FRONTEND_URL}
     networks:
