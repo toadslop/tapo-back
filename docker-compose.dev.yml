@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  nginx:
+    ports:
+      - 3000:80
+  main:
+    build:
+      target: development
+    ports:
+      - 9229:9229
+    command: npm run start:debug
+    env_file:
+      - .env
+    environment:
+      FRONTENT_URL: ${FRONTEND_URL}
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: test
