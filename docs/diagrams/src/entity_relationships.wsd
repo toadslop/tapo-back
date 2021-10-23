@@ -1,0 +1,40 @@
+@startuml Tapo Entity Relationship Graph
+skinparam Linetype ortho
+entity Beer {
+    *id : uuid <<generated>>
+    --
+    *name       : varchar(50)   <<translated>>
+    description : varchar(255)  <<translated>>
+    brewery     : varchar(50)   <<translated>>
+    origin      : varchar(50)   <<translated>>
+    style       : varchar(50)   <<translated>>
+    SRM         : varchar(10)
+    IBU         : varchar(10)
+    imageUrl    : varchar(2083)
+}
+entity RestaurantBeer {
+    *id     : uuid <<generated>>
+    --
+    #beerId : uuid
+    #tapId  : uuid
+    --
+    *name       : varchar(50)   <<translated>>
+    description : varchar(255)  <<translated>>
+    brewery     : varchar(50)   <<translated>>
+    origin      : varchar(50)   <<translated>>
+    style       : varchar(50)   <<translated>>
+    SRM         : varchar(10)
+    IBU         : varchar(10)
+    imageUrl    : varchar(2083)
+}
+
+entity Restaurant {
+    *id     : uuid <<generated>>
+    --
+    *name       : varchar(50)   <<translated>>
+    phone       : varchar(15)
+    description : varchar(255)  <<translated>>
+}
+Beer ||--o{ RestaurantBeer
+Restaurant ||--o{ RestaurantBeer
+@enduml
