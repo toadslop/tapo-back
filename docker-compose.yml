@@ -11,6 +11,7 @@ services:
     depends_on:
       - main
   main:
+    image: toadslop/tapo-back
     build:
       context: .
     volumes:
