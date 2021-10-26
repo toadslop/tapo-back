@@ -3,7 +3,6 @@ import { Module } from '@nestjs/common';
 import configuration from './configuration';
 import { PostgresConfigService } from './config.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 /**
  * Import and provide app configuration related classes.
