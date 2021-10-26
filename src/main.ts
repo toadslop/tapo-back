@@ -6,8 +6,7 @@ import { AppConfigService } from './config/app/config.service';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
-  const appConfig: AppConfigService = app.get('AppConfigService');
+  const appConfig: AppConfigService = app.get(AppConfigService);
 
   if (appConfig.trustProxy) app.set('trust proxy', 1);
 
