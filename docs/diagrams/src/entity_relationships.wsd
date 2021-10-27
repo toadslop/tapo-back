@@ -31,9 +31,23 @@ entity RestaurantBeer {
 entity Restaurant {
     *id     : uuid <<generated>>
     --
+    #ownerId : uuid
+    --
     *name       : varchar(50)   <<translated>>
+
     phone       : varchar(15)
     description : varchar(255)  <<translated>>
+}
+
+entity User {
+    *id     : uuid <<generated>>
+    --
+    # restaurantId : uuid
+    --
+    firstName : varchar(50)
+    lastname  : varchar(50)
+    email     : varchar(50)
+    password  : varchar(50)
 }
 Beer ||--o{ RestaurantBeer
 Restaurant ||--o{ RestaurantBeer
