@@ -3,9 +3,10 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { AppConfigModule } from './config/app/config.module';
 import { PostgresProviderModule } from './providers/database/postgres/provider.module';
-import { RedisProviderModule } from './providers/database/redis/provider.module';
+import { CacheProviderModule } from './providers/cache/provider.module';
+
 @Module({
-  imports: [AppConfigModule, PostgresProviderModule, RedisProviderModule],
+  imports: [AppConfigModule, PostgresProviderModule, CacheProviderModule],
   controllers: [AppController],
   providers: [AppService],
 })

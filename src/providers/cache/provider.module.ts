@@ -17,4 +17,4 @@ import { RedisConfigService } from 'src/config/database/redis/config.service';
     }),
   ],
 })
-export class RedisProviderModule {}
+export class CacheProviderModule {}
