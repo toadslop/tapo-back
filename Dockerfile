@@ -8,7 +8,7 @@ RUN npm install --ignore-engines
 
 COPY . .
 
-RUN npm run build
+RUN npm run build --ignore-engines
 
 FROM node:17-alpine3.12 as production
 
