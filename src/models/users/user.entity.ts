@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, Check } from 'typeorm';
 
 @Entity()
-@Check(`char_length("password") <= 255`)
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -14,6 +13,7 @@ export class User {
   })
   email: string;
 
+  @Check('char_length(password) > 6')
   @Column('varchar', { nullable: false, length: 128 })
   password: string;
 
