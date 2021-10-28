@@ -6,6 +6,7 @@ import { PostgresProviderModule } from './providers/database/postgres/provider.m
 import { CacheProviderModule } from './providers/cache/provider.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './models/users/users.module';
+import { UsersController } from './models/users/users.controller';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { UsersModule } from './models/users/users.module';
     AuthModule,
     UsersModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, UsersController],
   providers: [AppService],
 })
 export class AppModule {}
