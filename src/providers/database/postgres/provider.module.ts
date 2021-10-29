@@ -6,6 +6,7 @@ import { PostgresConfigService } from 'src/config/database/postgres/config.servi
 import { User } from 'src/models/users/user.entity';
 import { AppConfigModule } from 'src/config/app/config.module';
 import { AppConfigService } from 'src/config/app/config.service';
+
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
