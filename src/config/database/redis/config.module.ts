@@ -16,7 +16,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       validationSchema: Joi.object({
         REDIS_PASSWORD: Joi.string().default('redis'),
         REDIS_PORT: Joi.number().default(6379),
-        REDIS_HOST: Joi.string().default('localhost'),
+        REDIS_HOST: Joi.string().default('redis'),
       }),
     }),
   ],
