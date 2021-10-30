@@ -6,4 +6,5 @@ export default registerAs('app', () => ({
   trustProxy: process.env.APP_TRUST_PROXY,
   frontUrl: process.env.APP_FRONT_URL,
   jwtSecret: process.env.APP_JWT_SECRET,
+  jwtExpir: process.env.APP_JWT_EXPIR,
 }));

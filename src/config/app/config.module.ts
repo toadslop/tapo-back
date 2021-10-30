@@ -21,6 +21,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         APP_TRUST_PROXY: Joi.boolean().default(false),
         APP_FRONT_URL: Joi.string().default('localhost:3001'),
         APP_JWT_SECRET: Joi.string().default('supersecret'),
+        APP_JWT_EXPIR: Joi.alternatives([Joi.string(), Joi.number()]).default(
+          '30m',
+        ),
       }),
     }),
   ],

@@ -29,4 +29,8 @@ export class AppConfigService {
   get jwtSecret(): string {
     return this.configService.get<string>('app.jwtSecret');
   }
+
+  get jwtExpir(): string {
+    return this.configService.get<string>('app.jwtExpir');
+  }
 }
