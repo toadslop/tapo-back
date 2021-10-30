@@ -1,8 +1,29 @@
-POST http://localhost:3000/users HTTP/1.1
+@baseUrl = http://localhost:3000
+
+# @name login
+POST {{baseUrl}}/auth/login HTTP/1.1
 content-type: application/json
 
 {
   "email": "test@example.com",
+  "password": "testtest"
+}
+
+###
+
+@authToken = {{login.response.body.access_token}}
+
+# @name getAllUsers
+GET {{baseUrl}}/users HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{authToken}}
+
+### CREATA A USER
+POST {{baseUrl}}/users HTTP/1.1
+content-type: application/json
+
+{
+  "email": "test{{$randomInt 1 10000}}@example.com",
   "password": "testtest",
   "firstName": "Chuck",
   "lastName": "Testa"
