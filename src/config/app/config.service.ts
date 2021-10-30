@@ -25,4 +25,8 @@ export class AppConfigService {
   get frontUrl(): string {
     return this.configService.get<string>('app.frontUrl');
   }
+
+  get jwtSecret(): string {
+    return this.configService.get<string>('app.jwtSecret');
+  }
 }
