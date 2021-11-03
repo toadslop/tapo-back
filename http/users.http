@@ -21,6 +21,7 @@ Authorization: Bearer {{authToken}}
 ### CREATA A USER
 POST {{baseUrl}}/users HTTP/1.1
 content-type: application/json
+Authorization: Bearer {{authToken}}
 
 {
   "email": "test{{$randomInt 1 10000}}@example.com",
