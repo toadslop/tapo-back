@@ -2,8 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Restaurant } from '../restaurant/restaurant.entity';
 import { User } from '../users/user.entity';
 
-enum Roles {
-  ADMIN = 'admin',
+export enum Roles {
   OWNER = 'owner',
   EMPLOYEE = 'employee',
   GUEST = 'guest',
@@ -21,5 +20,5 @@ export class Role {
   restaurant: Restaurant;
 
   @Column({ type: 'enum', enum: Roles, default: Roles.GUEST })
-  role: string;
+  roleName: string;
 }
