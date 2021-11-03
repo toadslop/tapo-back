@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as rateLimit from 'express-rate-limit';
+import rateLimit from 'express-rate-limit';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { AppConfigService } from './config/app/config.service';
 
