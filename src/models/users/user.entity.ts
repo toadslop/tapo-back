@@ -1,4 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, Check } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Check,
+  OneToMany,
+} from 'typeorm';
+import { Role } from '../roles/role';
 
 @Entity()
 export class User {
@@ -25,4 +32,7 @@ export class User {
 
   @Column({ default: true })
   isActive: boolean;
+
+  @OneToMany(() => Role, (role) => role.user)
+  roles: Role[];
 }
