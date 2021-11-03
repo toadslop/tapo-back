@@ -7,6 +7,14 @@ import {
 } from 'typeorm';
 import { Role } from '../roles/role';
 
+export enum Action {
+  Manage = 'manage',
+  Create = 'create',
+  Read = 'read',
+  Update = 'update',
+  Delete = 'delete',
+}
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
@@ -33,6 +41,9 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @OneToMany(() => Role, (role) => role.user)
+  @Column({ type: 'boolean', default: false, nullable: false })
+  isAdmin: boolean;
+
+  @OneToMany(() => Role, (role) => role.user, { eager: true })
   roles: Role[];
 }
