@@ -19,7 +19,7 @@ export class Restaurant {
 
   @ManyToMany(() => Translation)
   @JoinTable({
-    name: 'description_translations',
+    name: 't_restaurant_descriptions',
     joinColumn: {
       name: 'restaurant',
       referencedColumnName: 'id',
