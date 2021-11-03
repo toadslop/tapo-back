@@ -1,34 +1,19 @@
-import {
-  Body,
-  Controller,
-  ForbiddenException,
-  Get,
-  Post,
-  Req,
-  UseGuards,
-} from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { CaslAbilityFactory } from 'src/casl/casl-ability.factory';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { CheckPolicies, PoliciesGuard } from 'src/auth/guards/policies.guard';
+import { AppAbility } from 'src/casl/casl-ability.factory';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { Action, User } from './user.entity';
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
-  constructor(
-    private userService: UsersService,
-    private caslAbilityFactory: CaslAbilityFactory,
-  ) {}
+  constructor(private userService: UsersService) {}
 
-  @UseGuards(JwtAuthGuard)
   @Get()
-  async findAll(@Req() { user }): Promise<User[]> {
-    const ability = this.caslAbilityFactory.createForUser(user as User);
-    if (ability.can(Action.Read, User)) {
-      return this.userService.findAll();
-    } else {
-      throw new ForbiddenException();
-    }
+  @UseGuards(PoliciesGuard)
+  @CheckPolicies((ability: AppAbility) => ability.can(Action.Read, User))
+  async findAll(): Promise<User[]> {
+    return this.userService.findAll();
   }
 
   @Post()
