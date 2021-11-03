@@ -6,6 +6,9 @@ import { PostgresConfigService } from 'src/config/database/postgres/config.servi
 import { User } from 'src/models/users/user.entity';
 import { AppConfigModule } from 'src/config/app/config.module';
 import { AppConfigService } from 'src/config/app/config.service';
+import { Role } from 'src/models/roles/role';
+import { Translation } from 'src/models/translations/translation';
+import { Restaurant } from 'src/models/restaurant/restaurant.entity';
 
 @Module({
   imports: [
@@ -21,7 +24,7 @@ import { AppConfigService } from 'src/config/app/config.service';
         username: postgresConfigService.user,
         password: postgresConfigService.password,
         database: postgresConfigService.db,
-        entities: [User],
+        entities: [User, Role, Translation, Restaurant],
         synchronize: appConfigService.env === 'development',
       }),
       inject: [PostgresConfigService, AppConfigService],
